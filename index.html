@@ -10,6 +10,8 @@
     header { background: #2c3e50; color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     header h1 { margin: 0; font-size: 1.8rem; }
     nav a { color: #fff; margin-left: 1rem; text-decoration: none; font-weight: bold; }
+    .lang-switcher { margin-left: auto; display: flex; gap: 0.5rem; }
+    .lang-switcher img { width: 24px; height: 16px; cursor: pointer; }
     .hero { text-align: center; padding: 4rem 2rem; background: #3498db; color: #fff; }
     .hero h2 { font-size: 2rem; }
     .hero p { font-size: 1.2rem; }
@@ -19,7 +21,14 @@
     .service-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     .service-card h3 { margin-top: 0; }
     footer { text-align: center; background: #2c3e50; color: #fff; padding: 2rem 1rem; margin-top: 3rem; }
+    form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: auto; }
+    input, textarea { padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; }
   </style>
+  <script>
+    function changeLanguage(lang) {
+      alert("Language switching functionality will be implemented soon. Currently showing English.");
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -29,6 +38,11 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="lang-switcher">
+      <img src="https://flagcdn.com/w40/us.png" alt="English" onclick="changeLanguage('en')">
+      <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" onclick="changeLanguage('de')">
+      <img src="https://flagcdn.com/w40/pl.png" alt="Polski" onclick="changeLanguage('pl')">
+    </div>
   </header>
 
   <div class="hero">
@@ -62,12 +76,24 @@
   <section id="about" class="section">
     <h2>About RemoteFix</h2>
     <p>RemoteFix was founded to bring professional IT support to your fingertips. With years of experience in Windows systems, software troubleshooting, and data handling, our goal is to make tech simple and accessible – without needing to leave your home.</p>
+    <p><strong>Worldwide Remote Help:</strong> €30/hour (via TeamViewer)<br>
+    <strong>In-person Support in NRW, Germany:</strong> €40/hour</p>
   </section>
 
   <section id="contact" class="section">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:support@remotefix.de">support@remotefix.de</a></p>
-    <p>Or fill out our quick form (coming soon!) to schedule your support session.</p>
+    <p>All messages are answered within 24 hours.</p>
+    <form action="mailto:igor.jurczak0161@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+    <p>Email: <a href="mailto:igor.jurczak0161@gmail.com">igor.jurczak0161@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/igorjurczak/" target="_blank">linkedin.com/in/igorjurczak</a></p>
+    <p>Book a session: <a href="https://calendly.com/igor-jurczak0161" target="_blank">Schedule via Calendly</a></p>
+    <p>PayPal: <a href="mailto:igor.jurczak0161@gmail.com">igor.jurczak0161@gmail.com</a></p>
+    <p>Alternative payment methods: To be discussed</p>
   </section>
 
   <footer>
