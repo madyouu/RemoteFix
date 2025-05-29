@@ -52,19 +52,19 @@
     <h2 id="servicesTitle">Our Services</h2>
     <div class="services">
       <div class="service-card">
-        <h3><i class="fas fa-desktop"></i> Windows Troubleshooting</h3>
+        <h3 id="title1"><i class="fas fa-desktop"></i> Windows Troubleshooting</h3>
         <p id="service1">We resolve Windows errors, crashes, and software issues efficiently and remotely.</p>
       </div>
       <div class="service-card">
-        <h3><i class="fas fa-shield-alt"></i> Virus Removal</h3>
+        <h3 id="title2"><i class="fas fa-shield-alt"></i> Virus Removal</h3>
         <p id="service2">Full scan and removal of malware and spyware while protecting your data.</p>
       </div>
       <div class="service-card">
-        <h3><i class="fas fa-sync-alt"></i> System Optimization</h3>
+        <h3 id="title3"><i class="fas fa-sync-alt"></i> System Optimization</h3>
         <p id="service3">Speed up your PC, remove unnecessary programs, and improve performance.</p>
       </div>
       <div class="service-card">
-        <h3><i class="fas fa-network-wired"></i> Software Setup</h3>
+        <h3 id="title4"><i class="fas fa-network-wired"></i> Software Setup</h3>
         <p id="service4">Install or configure your software remotely – Office, antivirus, drivers, and more.</p>
       </div>
     </div>
@@ -80,8 +80,7 @@
   <section id="contact" class="section">
     <h2>Contact Us</h2>
     <p>All messages are answered within 24 hours.</p>
-    <!-- Replace 'yourformid' with your actual Formspree ID -->
-    <form action="https://formspree.io/f/yourformid" method="POST">
+    <form action="https://formspree.io/f/xovwaaql" method="POST">
       <input type="text" name="name" id="placeholderName" placeholder="Your Name" required>
       <input type="email" name="email" id="placeholderEmail" placeholder="Your Email" required>
       <textarea name="message" rows="5" id="placeholderMessage" placeholder="Your Message" required></textarea>
@@ -113,6 +112,10 @@
           contactBtn: "Send Message",
           bookingLink: "Schedule via Calendly",
           paymentMethods: "Payment methods: To be discussed",
+          title1: "Windows Troubleshooting",
+          title2: "Virus Removal",
+          title3: "System Optimization",
+          title4: "Software Setup",
           service1: "We resolve Windows errors, crashes, and software issues efficiently and remotely.",
           service2: "Full scan and removal of malware and spyware while protecting your data.",
           service3: "Speed up your PC, remove unnecessary programs, and improve performance.",
@@ -132,6 +135,10 @@
           contactBtn: "Nachricht senden",
           bookingLink: "Termin über Calendly buchen",
           paymentMethods: "Zahlungsmethoden: Nach Absprache",
+          title1: "Windows-Fehlerbehebung",
+          title2: "Virenentfernung",
+          title3: "Systemoptimierung",
+          title4: "Softwareinstallation",
           service1: "Wir beheben Windows-Fehler, Abstürze und Softwareprobleme effizient und aus der Ferne.",
           service2: "Kompletter Scan und Entfernung von Malware und Spyware bei gleichzeitiger Datensicherung.",
           service3: "Beschleunigen Sie Ihren PC, entfernen Sie unnötige Programme und verbessern Sie die Leistung.",
@@ -151,6 +158,10 @@
           contactBtn: "Wyślij wiadomość",
           bookingLink: "Umów się przez Calendly",
           paymentMethods: "Metody płatności: Do uzgodnienia",
+          title1: "Rozwiązywanie problemów Windows",
+          title2: "Usuwanie wirusów",
+          title3: "Optymalizacja systemu",
+          title4: "Instalacja oprogramowania",
           service1: "Rozwiązujemy błędy Windows, awarie i problemy z oprogramowaniem szybko i zdalnie.",
           service2: "Pełne skanowanie i usuwanie złośliwego oprogramowania z ochroną danych.",
           service3: "Przyspiesz swój komputer, usuń niepotrzebne programy i popraw wydajność.",
@@ -171,6 +182,10 @@
       document.getElementById("contactBtn").innerText = t.contactBtn;
       document.getElementById("bookingLink").innerText = t.bookingLink;
       document.getElementById("paymentMethods").innerText = t.paymentMethods;
+      document.getElementById("title1").innerHTML = `<i class='fas fa-desktop'></i> ${t.title1}`;
+      document.getElementById("title2").innerHTML = `<i class='fas fa-shield-alt'></i> ${t.title2}`;
+      document.getElementById("title3").innerHTML = `<i class='fas fa-sync-alt'></i> ${t.title3}`;
+      document.getElementById("title4").innerHTML = `<i class='fas fa-network-wired'></i> ${t.title4}`;
       document.getElementById("service1").innerText = t.service1;
       document.getElementById("service2").innerText = t.service2;
       document.getElementById("service3").innerText = t.service3;
