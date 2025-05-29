@@ -26,7 +26,60 @@
   </style>
   <script>
     function changeLanguage(lang) {
-      alert("Language switching functionality will be implemented soon. Currently showing English.");
+      const translations = {
+        en: {
+          heroTitle: "Fast & Reliable Remote IT Support",
+          heroText: "We fix your computer issues quickly, securely, and remotely – anytime, anywhere.",
+          getHelp: "Get Help Now",
+          servicesTitle: "Our Services",
+          aboutTitle: "About RemoteFix",
+          aboutText: "RemoteFix was founded to bring professional IT support to your fingertips. With years of experience in Windows systems, software troubleshooting, and data handling, our goal is to make tech simple and accessible – without needing to leave your home.",
+          contactTitle: "Contact Us",
+          contactInfo: "All messages are answered within 24 hours.",
+          contactButton: "Send Message",
+          bookingText: "Schedule via Calendly",
+          paymentMethods: "Payment methods"
+        },
+        de: {
+          heroTitle: "Schneller & zuverlässiger IT-Support aus der Ferne",
+          heroText: "Wir beheben Ihre Computerprobleme schnell, sicher und aus der Ferne – jederzeit, überall.",
+          getHelp: "Jetzt Hilfe anfordern",
+          servicesTitle: "Unsere Dienstleistungen",
+          aboutTitle: "Über RemoteFix",
+          aboutText: "RemoteFix wurde gegründet, um professionellen IT-Support direkt zu Ihnen zu bringen. Mit jahrelanger Erfahrung in Windows-Systemen, Software-Fehlerbehebung und Datenverarbeitung ist es unser Ziel, Technik einfach und zugänglich zu machen – ohne Ihr Zuhause zu verlassen.",
+          contactTitle: "Kontaktieren Sie uns",
+          contactInfo: "Alle Nachrichten werden innerhalb von 24 Stunden beantwortet.",
+          contactButton: "Nachricht senden",
+          bookingText: "Termin über Calendly buchen",
+          paymentMethods: "Zahlungsmethoden"
+        },
+        pl: {
+          heroTitle: "Szybkie i niezawodne wsparcie IT zdalnie",
+          heroText: "Naprawiamy problemy z komputerem szybko, bezpiecznie i zdalnie – w każdej chwili, z dowolnego miejsca.",
+          getHelp: "Uzyskaj pomoc teraz",
+          servicesTitle: "Nasze usługi",
+          aboutTitle: "O RemoteFix",
+          aboutText: "RemoteFix powstał, aby zapewnić profesjonalne wsparcie IT na wyciągnięcie ręki. Dzięki wieloletniemu doświadczeniu w systemach Windows, rozwiązywaniu problemów z oprogramowaniem i analizie danych, naszym celem jest uproszczenie technologii i uczynienie jej dostępną – bez wychodzenia z domu.",
+          contactTitle: "Skontaktuj się z nami",
+          contactInfo: "Wszystkie wiadomości są odpowiadane w ciągu 24 godzin.",
+          contactButton: "Wyślij wiadomość",
+          bookingText: "Umów się przez Calendly",
+          paymentMethods: "Metody płatności"
+        }
+      };
+
+      const t = translations[lang];
+      document.querySelector(".hero h2").innerText = t.heroTitle;
+      document.querySelector(".hero p").innerText = t.heroText;
+      document.querySelector(".hero .btn").innerText = t.getHelp;
+      document.querySelector("#services h2").innerText = t.servicesTitle;
+      document.querySelector("#about h2").innerText = t.aboutTitle;
+      document.querySelector("#about p").innerText = t.aboutText;
+      document.querySelector("#contact h2").innerText = t.contactTitle;
+      document.querySelector("#contact p").innerText = t.contactInfo;
+      document.querySelector("form button").innerText = t.contactButton;
+      document.querySelector("#booking-link").innerText = t.bookingText;
+      document.querySelector("#payment-methods").innerText = t.paymentMethods;
     }
   </script>
 </head>
@@ -83,7 +136,7 @@
   <section id="contact" class="section">
     <h2>Contact Us</h2>
     <p>All messages are answered within 24 hours.</p>
-    <form action="mailto:igor.jurczak0161@gmail.com" method="post" enctype="text/plain">
+    <form action="https://formspree.io/f/mwkgybgq" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -91,9 +144,8 @@
     </form>
     <p>Email: <a href="mailto:igor.jurczak0161@gmail.com">igor.jurczak0161@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/igorjurczak/" target="_blank">linkedin.com/in/igorjurczak</a></p>
-    <p>Book a session: <a href="https://calendly.com/igor-jurczak0161" target="_blank">Schedule via Calendly</a></p>
-    <p>PayPal: <a href="mailto:igor.jurczak0161@gmail.com">igor.jurczak0161@gmail.com</a></p>
-    <p>Alternative payment methods: To be discussed</p>
+    <p>Book a session: <a id="booking-link" href="https://calendly.com/igor-jurczak0161" target="_blank">Schedule via Calendly</a></p>
+    <p id="payment-methods">Payment methods: To be discussed</p>
   </section>
 
   <footer>
