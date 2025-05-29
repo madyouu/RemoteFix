@@ -25,6 +25,8 @@
     footer { text-align: center; background: #2c3e50; color: #fff; padding: 2rem 1rem; margin-top: 3rem; }
     form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: auto; }
     input, textarea { padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+    #cookie-banner { position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; display: none; z-index: 1000; }
+    #cookie-banner button { margin-left: 1rem; padding: 0.5rem 1rem; background: #e67e22; color: white; border: none; border-radius: 5px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -77,6 +79,24 @@
     <p id="scopeNote">Remotely, we support only PC/software issues. In-person (NRW), we support all home electronic devices with software-related problems.</p>
   </section>
 
+  <section id="testimonials" class="section">
+    <h2>What Clients Say</h2>
+    <div class="services">
+      <div class="service-card">
+        <p><em>"Igor fixed my laptop remotely in under an hour. Clear, fast, and very professional!"</em></p>
+        <p><strong>— Anna, Essen</strong></p>
+      </div>
+      <div class="service-card">
+        <p><em>"Excellent help in Polish, German, and English. Very helpful for my international team."</em></p>
+        <p><strong>— Tomasz, Bochum</strong></p>
+      </div>
+      <div class="service-card">
+        <p><em>"RemoteFix helped clean my PC and improve its speed. Highly recommend!"</em></p>
+        <p><strong>— Kevin, Düsseldorf</strong></p>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="section">
     <h2>Contact Us</h2>
     <p>All messages are answered within 24 hours.</p>
@@ -95,7 +115,22 @@
     <p>&copy; 2025 RemoteFix. All rights reserved.</p>
   </footer>
 
+  <div id="cookie-banner">
+    This website uses cookies to ensure you get the best experience. By continuing, you accept our use of cookies.
+    <button onclick="acceptCookies()">Accept</button>
+  </div>
+
   <script>
+    function acceptCookies() {
+      document.getElementById('cookie-banner').style.display = 'none';
+      localStorage.setItem('cookieAccepted', 'true');
+    }
+    window.onload = function() {
+      if (!localStorage.getItem('cookieAccepted')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
+    };
+
     function changeLanguage(lang) {
       const t = {
         en: {
