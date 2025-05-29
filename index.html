@@ -33,9 +33,9 @@
   <header>
     <h1>RemoteFix</h1>
     <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#services" id="navServices">Services</a>
+      <a href="#about" id="navAbout">About</a>
+      <a href="#contact" id="navContact">Contact</a>
     </nav>
     <div class="lang-switcher">
       <img src="https://flagcdn.com/w40/us.png" alt="EN" onclick="changeLanguage('en')">
@@ -73,13 +73,13 @@
   </section>
 
   <section id="about" class="section">
-    <h2>About</h2>
+    <h2 id="aboutTitle">About</h2>
     <p id="aboutText">RemoteFix offers expert PC support worldwide via TeamViewer for €30/hour or in-person across NRW for €40/hour. Remote support covers PC issues only. In-person support includes all software issues for household electronics.</p>
   </section>
 
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Messages will be answered within 24 hours.</p>
+    <h2 id="contactTitle">Contact</h2>
+    <p id="responseTime">Messages will be answered within 24 hours.</p>
     <form action="https://formspree.io/f/xovwaaql" method="POST">
       <input type="text" name="name" id="placeholderName" placeholder="Your Name" required>
       <input type="email" name="email" id="placeholderEmail" placeholder="Your Email" required>
@@ -115,15 +115,25 @@
     function changeLanguage(lang) {
       const t = {
         en: {
+          navServices: "Services",
+          navAbout: "About",
+          navContact: "Contact",
           heroTitle: "Fast & Reliable Remote IT Support",
           heroText: "Your PC problems solved remotely or in-person across NRW.",
           getHelpBtn: "Get Help Now",
           servicesTitle: "Our Services",
+          title1: "Windows Troubleshooting",
+          title2: "Virus Removal",
+          title3: "System Optimization",
+          title4: "Software Setup",
           service1: "Fix crashes, boot issues, and system errors remotely.",
           service2: "Remove malware and secure your personal data.",
           service3: "Speed up slow systems and improve performance.",
           service4: "Install Office, antivirus, drivers, and other tools.",
+          aboutTitle: "About",
           aboutText: "RemoteFix offers expert PC support worldwide via TeamViewer for €30/hour or in-person across NRW for €40/hour. Remote support covers PC issues only. In-person support includes all software issues for household electronics.",
+          contactTitle: "Contact",
+          responseTime: "Messages will be answered within 24 hours.",
           placeholderName: "Your Name",
           placeholderEmail: "Your Email",
           placeholderMessage: "Your Message",
@@ -132,32 +142,52 @@
           paymentMethods: "Payment methods: To be discussed"
         },
         de: {
+          navServices: "Dienstleistungen",
+          navAbout: "Über uns",
+          navContact: "Kontakt",
           heroTitle: "Schneller & Zuverlässiger IT-Support",
           heroText: "PC-Probleme weltweit remote oder vor Ort in NRW lösen.",
           getHelpBtn: "Jetzt Hilfe erhalten",
           servicesTitle: "Unsere Leistungen",
+          title1: "Windows-Fehlerbehebung",
+          title2: "Virenentfernung",
+          title3: "Systemoptimierung",
+          title4: "Softwareinstallation",
           service1: "Beheben Sie Abstürze, Startprobleme und Systemfehler aus der Ferne.",
           service2: "Malware entfernen und persönliche Daten schützen.",
           service3: "Langsame Systeme beschleunigen und Leistung verbessern.",
           service4: "Installieren Sie Office, Antivirus, Treiber und mehr.",
+          aboutTitle: "Über uns",
           aboutText: "RemoteFix bietet PC-Support weltweit per TeamViewer (30 €/Std) oder vor Ort in NRW (40 €/Std). Remote nur PC, vor Ort auch Haushaltsgeräte (Software).",
+          contactTitle: "Kontakt",
+          responseTime: "Nachrichten werden innerhalb von 24 Stunden beantwortet.",
           placeholderName: "Ihr Name",
           placeholderEmail: "Ihre E-Mail",
           placeholderMessage: "Ihre Nachricht",
           contactBtn: "Nachricht senden",
-          bookingLink: "Buchen über Calendly",
+          bookingLink: "Über Calendly buchen",
           paymentMethods: "Zahlungsarten: Nach Vereinbarung"
         },
         pl: {
+          navServices: "Usługi",
+          navAbout: "O nas",
+          navContact: "Kontakt",
           heroTitle: "Szybkie i niezawodne wsparcie IT",
           heroText: "Problemy z PC rozwiązywane zdalnie lub osobiście w NRW.",
           getHelpBtn: "Uzyskaj pomoc",
           servicesTitle: "Nasze usługi",
+          title1: "Rozwiązywanie problemów Windows",
+          title2: "Usuwanie wirusów",
+          title3: "Optymalizacja systemu",
+          title4: "Instalacja oprogramowania",
           service1: "Naprawa awarii, błędów systemu i uruchamiania zdalnie.",
           service2: "Usuwanie wirusów i ochrona danych osobowych.",
           service3: "Przyspieszanie wolnych systemów i poprawa wydajności.",
           service4: "Instalacja Office, antywirusów, sterowników i więcej.",
+          aboutTitle: "O nas",
           aboutText: "RemoteFix oferuje wsparcie IT na całym świecie przez TeamViewer (30 €/h) lub osobiście w NRW (40 €/h). Zdalnie tylko PC, osobiście wszystkie urządzenia (oprogramowanie).",
+          contactTitle: "Kontakt",
+          responseTime: "Wiadomości są odpowiadane w ciągu 24 godzin.",
           placeholderName: "Twoje imię",
           placeholderEmail: "Twój e-mail",
           placeholderMessage: "Twoja wiadomość",
@@ -168,9 +198,11 @@
       }[lang];
 
       for (const id in t) {
-        if (document.getElementById(id)) {
-          if (id === 'supportRates') document.getElementById(id).innerHTML = t[id];
-          else document.getElementById(id).innerText = t[id];
+        const el = document.getElementById(id);
+        if (el) {
+          if (id.startsWith('placeholder')) el.placeholder = t[id];
+          else if (id === 'paymentMethods' || id === 'aboutText' || id === 'supportRates') el.innerHTML = t[id];
+          else el.innerText = t[id];
         }
       }
     }
