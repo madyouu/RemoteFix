@@ -74,12 +74,14 @@
     <h2>About RemoteFix</h2>
     <p id="aboutText">RemoteFix was founded to bring professional IT support to your fingertips. With years of experience in Windows systems, software troubleshooting, and data handling, our goal is to make tech simple and accessible – without needing to leave your home.</p>
     <p id="supportRates"><strong>Worldwide Remote Help:</strong> €30/hour (via TeamViewer)<br><strong>In-person Support in NRW, Germany:</strong> €40/hour</p>
+    <p id="scopeNote">Remotely, we support only PC/software issues. In-person (NRW), we support all home electronic devices with software-related problems.</p>
   </section>
 
   <section id="contact" class="section">
     <h2>Contact Us</h2>
     <p>All messages are answered within 24 hours.</p>
-    <form action="https://formspree.io/f/mwkgybgq" method="POST">
+    <!-- Replace 'yourformid' with your actual Formspree ID -->
+    <form action="https://formspree.io/f/yourformid" method="POST">
       <input type="text" name="name" id="placeholderName" placeholder="Your Name" required>
       <input type="email" name="email" id="placeholderEmail" placeholder="Your Email" required>
       <textarea name="message" rows="5" id="placeholderMessage" placeholder="Your Message" required></textarea>
@@ -96,7 +98,7 @@
 
   <script>
     function changeLanguage(lang) {
-      const translations = {
+      const t = {
         en: {
           heroTitle: "Fast & Reliable Remote IT Support",
           heroText: "We fix your computer issues quickly, securely, and remotely – anytime, anywhere.",
@@ -104,6 +106,7 @@
           servicesTitle: "Our Services",
           aboutText: "RemoteFix was founded to bring professional IT support to your fingertips...",
           supportRates: "Worldwide Remote Help: €30/hour (via TeamViewer)<br>In-person Support in NRW, Germany: €40/hour",
+          scopeNote: "Remotely, we support only PC/software issues. In-person (NRW), we support all home electronic devices with software-related problems.",
           placeholderName: "Your Name",
           placeholderEmail: "Your Email",
           placeholderMessage: "Your Message",
@@ -122,6 +125,7 @@
           servicesTitle: "Unsere Dienstleistungen",
           aboutText: "RemoteFix wurde gegründet, um professionellen IT-Support direkt zu Ihnen zu bringen...",
           supportRates: "Weltweiter Fernsupport: 30 €/Stunde (via TeamViewer)<br>Vor-Ort-Support in NRW, Deutschland: 40 €/Stunde",
+          scopeNote: "Fernwartung: Wir unterstützen nur PC-/Softwareprobleme. Vor Ort (NRW) unterstützen wir alle Haushaltsgeräte mit softwarebezogenen Problemen.",
           placeholderName: "Ihr Name",
           placeholderEmail: "Ihre E-Mail",
           placeholderMessage: "Ihre Nachricht",
@@ -140,6 +144,7 @@
           servicesTitle: "Nasze usługi",
           aboutText: "RemoteFix powstał, aby zapewnić profesjonalne wsparcie IT na wyciągnięcie ręki...",
           supportRates: "Zdalna pomoc na całym świecie: 30 €/godzina (przez TeamViewer)<br>Wsparcie osobiste w NRW, Niemcy: 40 €/godzina",
+          scopeNote: "Zdalnie wspieramy tylko problemy z oprogramowaniem na komputerach PC. Osobiście (NRW) pomagamy ze wszystkimi urządzeniami domowymi, jeśli chodzi o problemy z oprogramowaniem.",
           placeholderName: "Twoje imię",
           placeholderEmail: "Twój email",
           placeholderMessage: "Twoja wiadomość",
@@ -151,14 +156,15 @@
           service3: "Przyspiesz swój komputer, usuń niepotrzebne programy i popraw wydajność.",
           service4: "Zainstaluj lub skonfiguruj swoje oprogramowanie zdalnie – Office, antywirus, sterowniki i inne."
         }
-      };
-      const t = translations[lang];
+      }[lang];
+
       document.getElementById("heroTitle").innerText = t.heroTitle;
       document.getElementById("heroText").innerText = t.heroText;
       document.getElementById("getHelpBtn").innerText = t.getHelpBtn;
       document.getElementById("servicesTitle").innerText = t.servicesTitle;
       document.getElementById("aboutText").innerText = t.aboutText;
       document.getElementById("supportRates").innerHTML = t.supportRates;
+      document.getElementById("scopeNote").innerText = t.scopeNote;
       document.getElementById("placeholderName").placeholder = t.placeholderName;
       document.getElementById("placeholderEmail").placeholder = t.placeholderEmail;
       document.getElementById("placeholderMessage").placeholder = t.placeholderMessage;
