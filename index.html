@@ -148,23 +148,23 @@
       <strong data-en="What do I need to prepare for the remote session?"
               data-de="Was muss ich für die Remote-Session vorbereiten?"
               data-pl="Co muszę przygotować przed sesją zdalną?"></strong>
-      <p>
-        <a href="https://www.teamviewer.com/en/download/windows/" target="_blank">Download TeamViewer</a> – the rest we’ll handle over the phone!
-      </p>
+      <p data-en='Download TeamViewer: <a href="https://www.teamviewer.com/en/download/windows/" target="_blank">https://www.teamviewer.com/en/download/windows/</a> – the rest we’ll handle over the phone!'
+         data-de='Lade TeamViewer herunter: <a href="https://www.teamviewer.com/en/download/windows/" target="_blank">https://www.teamviewer.com/en/download/windows/</a> – den Rest klären wir am Telefon!'
+         data-pl='Pobierz TeamViewer: <a href="https://www.teamviewer.com/en/download/windows/" target="_blank">https://www.teamviewer.com/en/download/windows/</a> – resztę omówimy przez telefon!'></p>
     </div>
   </section>
 
   <section class="testimonials">
     <h2 data-en="Customer Testimonials" data-de="Kundenstimmen" data-pl="Opinie klientów"></h2>
-    <div class="testimonial" data-en="Igor quickly fixed my PC issues remotely. Very professional and friendly – highly recommend!"
-         data-de="Igor hat meine PC-Probleme schnell behoben – sehr professionell und freundlich. Sehr empfehlenswert!"
-         data-pl="Igor szybko rozwiązał moje problemy z komputerem. Bardzo profesjonalny i pomocny – polecam!"></div>
-    <div class="testimonial" data-en="Great service! My PC was slow, but Igor boosted it like new."
-         data-de="Toller Service! Mein PC war langsam, aber Igor hat ihn wieder wie neu gemacht."
-         data-pl="Świetna obsługa! Mój komputer był wolny, ale Igor sprawił, że działał jak nowy."></div>
-    <div class="testimonial" data-en="RemoteFix solved my software nightmare in minutes. Super helpful!"
-         data-de="RemoteFix hat mein Software-Problem in Minuten gelöst. Super hilfreich!"
-         data-pl="RemoteFix rozwiązało mój koszmar z oprogramowaniem w kilka minut. Super pomocny!"></div>
+    <div class="testimonial" data-en='"Igor quickly fixed my PC issues remotely. Very professional and friendly – highly recommend!" – John D., Berlin'
+         data-de='"Igor hat meine PC-Probleme schnell behoben – sehr professionell und freundlich. Sehr empfehlenswert!" – John D., Berlin'
+         data-pl='"Igor szybko rozwiązał moje problemy z komputerem. Bardzo profesjonalny i pomocny – polecam!" – Jan D., Berlin'></div>
+    <div class="testimonial" data-en='"Great service! My PC was slow, but Igor boosted it like new." – Sarah K., Düsseldorf'
+         data-de='"Toller Service! Mein PC war langsam, aber Igor hat ihn wieder wie neu gemacht." – Sarah K., Düsseldorf'
+         data-pl='"Świetna obsługa! Mój komputer był wolny, ale Igor sprawił, że działał jak nowy." – Sara K., Düsseldorf'></div>
+    <div class="testimonial" data-en='"RemoteFix solved my software nightmare in minutes. Super helpful!" – Mike S., Cologne'
+         data-de='"RemoteFix hat mein Software-Problem in Minuten gelöst. Super hilfreich!" – Mike S., Köln'
+         data-pl='"RemoteFix rozwiązało mój koszmar z oprogramowaniem w kilka minut. Super pomocny!" – Michał S., Kolonia'></div>
   </section>
 
   <section class="about">
@@ -196,10 +196,13 @@
 
 <script>
 function setLang(lang) {
-  document.querySelectorAll('[data-en]').forEach(el => el.textContent = el.getAttribute('data-' + lang));
+  document.querySelectorAll('[data-en]').forEach(el => el.innerHTML = el.getAttribute('data-' + lang));
 }
 document.querySelector('.dark-toggle').addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
+});
+window.addEventListener('DOMContentLoaded', () => {
+  setLang('en');
 });
 </script>
 
