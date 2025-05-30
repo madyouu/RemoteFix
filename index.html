@@ -5,67 +5,202 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RemoteFix - IT Support</title>
 <meta name="description" content="RemoteFix offers reliable remote and in-person IT support in English, German, and Polish.">
-<meta name="author" content="Igor Jurczak">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  body { margin: 0; font-family: Arial, sans-serif; background: linear-gradient(to right, #d3d3d3, #f0f2f5, #d3d3d3); color: #333; }
-  header, main, footer { text-align: center; padding: 2rem; }
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; justify-items: center; }
-  .card, .faq-item { background: white; padding: 1rem; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 300px; }
-  .faq-item { display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
-  .faq-item:hover { transform: translateY(-5px); }
-  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s forwards; }
-  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-  #cookie-banner { position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; display: none; z-index: 1000; }
-  #cookie-banner button { margin-left: 1rem; padding: 0.5rem 1rem; background: #e67e22; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+  }
+  header, main, footer {
+    text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 1s forwards;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .services, .faq, .testimonials, .about, .contact {
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+  .faq-item, .testimonial {
+    background: #fff;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  input, textarea, button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .lang-switcher img {
+    width: 30px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+  }
+  .dark-mode {
+    background: #1c1c1c;
+    color: #f0f0f0;
+  }
+  .dark-mode .faq-item, .dark-mode .testimonial {
+    background: #333;
+  }
+  .cookie {
+    background: rgba(0,0,0,0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+  .button-link {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .dark-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>
 </head>
 <body>
 
-<header class="fade-in">
-  <h1 id="heroTitle">Fast & Reliable Remote IT Support</h1>
-  <p id="heroText">Your PC problems solved remotely or in-person across NRW.</p>
+<div class="dark-toggle"><i class="fas fa-moon"></i></div>
+
+<header>
+  <h1 data-en="Hi there! RemoteFix – Reliable IT Support in English, German, and Polish. Contact me for remote or in-person help today!"
+      data-de="Hi! RemoteFix – Zuverlässiger IT-Support auf Englisch, Deutsch und Polnisch. Kontaktiere mich für Remote- oder Vor-Ort-Hilfe noch heute!"
+      data-pl="Cześć! RemoteFix – Niezawodne wsparcie IT w języku angielskim, niemieckim i polskim. Skontaktuj się ze mną, aby uzyskać zdalną lub osobistą pomoc już dziś!">
+  </h1>
   <div class="lang-switcher">
-    <img src="https://flagcdn.com/w40/us.png" alt="en" onclick="changeLanguage('en')">
-    <img src="https://flagcdn.com/w40/de.png" alt="de" onclick="changeLanguage('de')">
-    <img src="https://flagcdn.com/w40/pl.png" alt="pl" onclick="changeLanguage('pl')">
+    <img src="https://flagcdn.com/us.svg" alt="English" onclick="setLang('en')">
+    <img src="https://flagcdn.com/de.svg" alt="Deutsch" onclick="setLang('de')">
+    <img src="https://flagcdn.com/pl.svg" alt="Polski" onclick="setLang('pl')">
   </div>
 </header>
 
 <main>
-  <!-- Content: Services, About, Testimonials, FAQ, Contact -->
+  <section class="services">
+    <h2 data-en="Services" data-de="Dienstleistungen" data-pl="Usługi"></h2>
+    <p data-en="Remote PC software fixes through TeamViewer: 30€ per hour"
+       data-de="Fernwartung von Softwareproblemen per TeamViewer: 30 € pro Stunde"
+       data-pl="Zdalne naprawy oprogramowania przez TeamViewer: 30 €/godzina"></p>
+    <p data-en="In-person all electronics software fixes (Germany NRW only): 40€ per hour"
+       data-de="Vor-Ort-Service für alle Elektronik-Softwareprobleme (nur in NRW, Deutschland): 40 € pro Stunde"
+       data-pl="Wsparcie osobiste dla wszystkich urządzeń elektronicznych (tylko Niemcy NRW): 40 €/godzina"></p>
+  </section>
+
+  <section class="faq">
+    <h2 data-en="FAQ" data-de="FAQ" data-pl="FAQ"></h2>
+    <div class="faq-item">
+      <strong data-en="What kind of problems can you fix remotely?"
+              data-de="Welche Probleme kannst du aus der Ferne beheben?"
+              data-pl="Jakie problemy możesz naprawić zdalnie?"></strong>
+      <p data-en="Various software issues (Windows, drivers, PC settings, game settings, boosting FPS, PC application cleaning, virus removal)"
+         data-de="Verschiedene Softwareprobleme (Windows, Treiber, PC-Einstellungen, Spieleinstellungen, FPS-Optimierung, PC-Bereinigung, Virenentfernung)"
+         data-pl="Różne problemy z oprogramowaniem (Windows, sterowniki, ustawienia PC, ustawienia gier, zwiększanie FPS, czyszczenie aplikacji, usuwanie wirusów)"></p>
+    </div>
+    <div class="faq-item">
+      <strong data-en="How do I get support in person?"
+              data-de="Wie erhalte ich Unterstützung vor Ort?"
+              data-pl="Jak mogę otrzymać wsparcie osobiście?"></strong>
+      <p data-en="Contact me and we will definitely figure out an appointment!"
+         data-de="Kontaktiere mich und wir finden sicher einen Termin!"
+         data-pl="Skontaktuj się ze mną, a na pewno umówimy się na spotkanie!"></p>
+    </div>
+    <div class="faq-item">
+      <strong data-en="What programs do you use to remotely connect to my PC?"
+              data-de="Welche Programme nutzt du, um dich mit meinem PC zu verbinden?"
+              data-pl="Jakich programów używasz do zdalnego połączenia z moim komputerem?"></strong>
+      <p>TeamViewer</p>
+    </div>
+    <div class="faq-item">
+      <strong data-en="Is it safe to let someone connect to my computer remotely?"
+              data-de="Ist es sicher, jemandem den Fernzugriff auf meinen PC zu geben?"
+              data-pl="Czy to bezpieczne, aby ktoś zdalnie połączył się z moim komputerem?"></strong>
+      <p data-en="It is safe ONLY if you trust the user. Do not let non-trusted people connect to your computer remotely."
+         data-de="Es ist nur sicher, wenn du der Person vertraust. Erlaube keinen unbekannten Personen den Fernzugriff!"
+         data-pl="To bezpieczne TYLKO jeśli ufasz tej osobie. Nie pozwalaj obcym osobom łączyć się zdalnie z twoim komputerem!"></p>
+    </div>
+    <div class="faq-item">
+      <strong data-en="What do I need to prepare for the remote session?"
+              data-de="Was muss ich für die Remote-Session vorbereiten?"
+              data-pl="Co muszę przygotować przed sesją zdalną?"></strong>
+      <p>
+        <a href="https://www.teamviewer.com/en/download/windows/" target="_blank">Download TeamViewer</a> – the rest we’ll handle over the phone!
+      </p>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 data-en="Customer Testimonials" data-de="Kundenstimmen" data-pl="Opinie klientów"></h2>
+    <div class="testimonial" data-en="Igor quickly fixed my PC issues remotely. Very professional and friendly – highly recommend!"
+         data-de="Igor hat meine PC-Probleme schnell behoben – sehr professionell und freundlich. Sehr empfehlenswert!"
+         data-pl="Igor szybko rozwiązał moje problemy z komputerem. Bardzo profesjonalny i pomocny – polecam!"></div>
+    <div class="testimonial" data-en="Great service! My PC was slow, but Igor boosted it like new."
+         data-de="Toller Service! Mein PC war langsam, aber Igor hat ihn wieder wie neu gemacht."
+         data-pl="Świetna obsługa! Mój komputer był wolny, ale Igor sprawił, że działał jak nowy."></div>
+    <div class="testimonial" data-en="RemoteFix solved my software nightmare in minutes. Super helpful!"
+         data-de="RemoteFix hat mein Software-Problem in Minuten gelöst. Super hilfreich!"
+         data-pl="RemoteFix rozwiązało mój koszmar z oprogramowaniem w kilka minut. Super pomocny!"></div>
+  </section>
+
+  <section class="about">
+    <h2 data-en="About Me" data-de="Über mich" data-pl="O mnie"></h2>
+    <p data-en="Igor, 25 years old, self-taught IT software specialist. I got my first computer at 7, and since then, I’ve been troubleshooting my own issues – trust me, I’ve seen everything!"
+       data-de="Igor, 25 Jahre alt, autodidaktischer IT-Software-Spezialist. Mit 7 bekam ich meinen ersten PC und seitdem behebe ich meine eigenen Probleme – glaub mir, ich habe schon alles gesehen!"
+       data-pl="Igor, 25 lat, samouk specjalista IT. Swój pierwszy komputer dostałem w wieku 7 lat i od tamtej pory sam rozwiązywałem swoje problemy – uwierz mi, widziałem już wszystko!"></p>
+  </section>
+
+  <section class="contact">
+    <h2 data-en="Contact Me" data-de="Kontaktiere mich" data-pl="Skontaktuj się ze mną"></h2>
+    <form action="https://formspree.io/f/mrgnaygv" method="POST">
+      <input type="text" name="name" placeholder="Name / Imię" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message / Nachricht / Wiadomość" required></textarea>
+      <button type="submit" data-en="Send" data-de="Senden" data-pl="Wyślij">Send</button>
+    </form>
+  </section>
+
+  <div class="cookie" data-en="This website uses cookies to ensure you get the best experience."
+       data-de="Diese Website verwendet Cookies, um dir das beste Erlebnis zu bieten."
+       data-pl="Ta strona używa plików cookies, aby zapewnić najlepsze wrażenia."></div>
+
+  <div>
+    <a href="https://calendly.com/igor-jurczak0161" class="button-link" target="_blank">Book an Appointment</a>
+    <a href="https://www.linkedin.com/in/igorjurczak/" class="button-link" target="_blank">LinkedIn</a>
+  </div>
 </main>
 
-<footer class="fade-in">&copy; 2025 RemoteFix. All rights reserved.</footer>
-
-<div id="cookie-banner">This website uses cookies. <button onclick="acceptCookies()">Accept</button></div>
-
 <script>
-  const translations = {
-    en: { heroTitle: "Fast & Reliable Remote IT Support", heroText: "Your PC problems solved remotely or in-person across NRW.", servicesTitle: "Our Services", /* ... more translations */ },
-    de: { heroTitle: "Schneller & Zuverlässiger IT-Support", heroText: "PC-Probleme weltweit remote oder vor Ort in NRW lösen.", servicesTitle: "Unsere Leistungen", /* ... more translations */ },
-    pl: { heroTitle: "Szybkie i niezawodne wsparcie IT", heroText: "Problemy z PC rozwiązywane zdalnie lub osobiście w NRW.", servicesTitle: "Nasze Usługi", /* ... more translations */ }
-  };
-  function changeLanguage(lang) {
-    const t = translations[lang];
-    for (const id in t) {
-      const el = document.getElementById(id);
-      if (el) el.innerText = t[id];
-    }
-    document.getElementById("inputName").placeholder = t.inputName;
-    document.getElementById("inputEmail").placeholder = t.inputEmail;
-    document.getElementById("inputMessage").placeholder = t.inputMessage;
-  }
-  function acceptCookies() {
-    document.getElementById('cookie-banner').style.display = 'none';
-    localStorage.setItem('cookieAccepted', 'true');
-  }
-  window.onload = function() {
-    if (!localStorage.getItem('cookieAccepted')) {
-      document.getElementById('cookie-banner').style.display = 'block';
-    }
-    document.querySelectorAll('.fade-in').forEach((el, i) => setTimeout(() => el.style.opacity = 1, 100 * i));
-  };
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => el.textContent = el.getAttribute('data-' + lang));
+}
+document.querySelector('.dark-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
 </script>
 
 </body>
