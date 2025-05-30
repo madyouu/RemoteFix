@@ -77,6 +77,9 @@
     right: 10px;
     cursor: pointer;
   }
+  .dark-toggle i {
+    font-size: 1.2rem;
+  }
   @keyframes fadeSlideIn {
     to {
       opacity: 1;
@@ -176,7 +179,7 @@
 
   <section class="contact">
     <h2 data-en="Contact Me" data-de="Kontaktiere mich" data-pl="Skontaktuj się ze mną"></h2>
-    <form action="https://formspree.io/f/mrgnaygv" method="POST">
+    <form action="https://formspree.io/f/xovwaaql" method="POST">
       <input type="text" name="name" placeholder="Name / Imię" required>
       <input type="email" name="email" placeholder="Email" required>
       <textarea name="message" placeholder="Message / Nachricht / Wiadomość" required></textarea>
@@ -200,6 +203,9 @@ function setLang(lang) {
 }
 document.querySelector('.dark-toggle').addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
+  const icon = document.querySelector('.dark-toggle i');
+  icon.classList.toggle('fa-moon');
+  icon.classList.toggle('fa-sun');
 });
 window.addEventListener('DOMContentLoaded', () => {
   setLang('en');
