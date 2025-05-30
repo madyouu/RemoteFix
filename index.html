@@ -4,19 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RemoteFix - IT Support</title>
-<meta name="description" content="RemoteFix offers fast, reliable remote and in-person IT support for PCs and software in English, German, and Polish." />
+<meta name="description" content="RemoteFix offers fast, reliable remote and in-person IT support for PCs and software in English, German, and Polish.">
 <meta name="keywords" content="remote IT support, PC troubleshooting, software repair, RemoteFix, TeamViewer, German IT support">
 <meta name="author" content="Igor Jurczak">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  /* Complete CSS here */
+  body { margin: 0; font-family: Arial, sans-serif; background: #f0f2f5; color: #333; }
+  header, main, footer { text-align: center; padding: 2rem; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+  .card, .faq-item { background: white; padding: 1rem; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .faq-item { transition: transform 0.3s ease; }
+  .faq-item:hover { transform: translateY(-5px); }
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s forwards; }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+  #cookie-banner { position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; display: none; z-index: 1000; }
+  #cookie-banner button { margin-left: 1rem; padding: 0.5rem 1rem; background: #e67e22; color: white; border: none; border-radius: 5px; cursor: pointer; }
 </style>
 </head>
 <body>
-<!-- Full HTML structure with multilingual translations (EN/DE/PL), cookie banner, testimonials, FAQ, animations -->
-<!-- Each section has translated text in JavaScript (for immediate language switching on flag click) -->
+
+<header class="fade-in">
+  <h1 id="heroTitle">Fast & Reliable Remote IT Support</h1>
+  <p id="heroText">Your PC problems solved remotely or in-person across NRW.</p>
+  <div class="lang-switcher">
+    <img src="https://flagcdn.com/w40/us.png" alt="en" onclick="changeLanguage('en')">
+    <img src="https://flagcdn.com/w40/de.png" alt="de" onclick="changeLanguage('de')">
+    <img src="https://flagcdn.com/w40/pl.png" alt="pl" onclick="changeLanguage('pl')">
+  </div>
+</header>
+
+<main>
+  <section id="services" class="section fade-in">
+    <h2 id="servicesTitle">Our Services</h2>
+    <div class="card-grid">
+      <div class="card"><h3 id="service1">Windows Troubleshooting</h3><p id="desc1">Fix crashes, boot issues, and system errors remotely.</p></div>
+      <div class="card"><h3 id="service2">Virus Removal</h3><p id="desc2">Remove malware and secure your personal data.</p></div>
+      <div class="card"><h3 id="service3">System Optimization</h3><p id="desc3">Speed up slow systems and improve performance.</p></div>
+      <div class="card"><h3 id="service4">Software Setup</h3><p id="desc4">Install Office, antivirus, drivers, and more.</p></div>
+    </div>
+  </section>
+
+  <section id="about" class="section fade-in">
+    <h2 id="aboutTitle">About</h2>
+    <p id="aboutText">RemoteFix offers expert PC support worldwide via TeamViewer for €30/hour or in-person across NRW for €40/hour. Remote support covers PC issues only. In-person support includes all software issues for household electronics.</p>
+  </section>
+
+  <section id="testimonials" class="section fade-in">
+    <h2 id="testimonialsTitle">Testimonials</h2>
+    <div class="card-grid">
+      <div class="card"><p><em>"Igor fixed my laptop remotely in under an hour!"</em></p><p><strong>– Anna, Essen</strong></p></div>
+      <div class="card"><p><em>"Excellent support in Polish, German, and English."</em></p><p><strong>– Tomasz, Bochum</strong></p></div>
+      <div class="card"><p><em>"RemoteFix cleaned my PC and improved its speed."</em></p><p><strong>– Kevin, Düsseldorf</strong></p></div>
+    </div>
+  </section>
+
+  <section id="faq" class="section fade-in">
+    <h2 id="faqTitle">Frequently Asked Questions</h2>
+    <div class="card-grid">
+      <div class="faq-item" id="faq1">Experience: Self-taught since age 7</div>
+      <div class="faq-item" id="faq2">Happy Customers: 100+</div>
+      <div class="faq-item" id="faq3">Languages: Polish, English, German</div>
+      <div class="faq-item" id="faq4">Tools: TeamViewer & AnyDesk</div>
+      <div class="faq-item" id="faq5">Payment: Remote (PayPal/bank), in-person (cash)</div>
+      <div class="faq-item" id="faq6">Not fixed? Free retry or full refund</div>
+      <div class="faq-item" id="faq7">Available 24/7. Flexible scheduling</div>
+    </div>
+  </section>
+
+  <section id="contact" class="section fade-in">
+    <h2 id="contactTitle">Contact</h2>
+    <p id="contactNote">Messages answered within 24 hours.</p>
+    <form action="https://formspree.io/f/xovwaaql" method="POST">
+      <input type="text" name="name" id="inputName" placeholder="Your Name" required>
+      <input type="email" name="email" id="inputEmail" placeholder="Your Email" required>
+      <textarea name="message" id="inputMessage" placeholder="Your Message" required></textarea>
+      <button type="submit" id="btnSend">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer class="fade-in">
+  &copy; 2025 RemoteFix. All rights reserved.
+</footer>
+
+<div id="cookie-banner">This website uses cookies. <button onclick="acceptCookies()">Accept</button></div>
+
 <script>
-  // JavaScript for language switching, animations, cookie banner, etc.
+  const translations = {
+    en: { heroTitle: \"Fast & Reliable Remote IT Support\", heroText: \"Your PC problems solved remotely or in-person across NRW.\", servicesTitle: \"Our Services\", service1: \"Windows Troubleshooting\", desc1: \"Fix crashes, boot issues, and system errors remotely.\", service2: \"Virus Removal\", desc2: \"Remove malware and secure your personal data.\", service3: \"System Optimization\", desc3: \"Speed up slow systems and improve performance.\", service4: \"Software Setup\", desc4: \"Install Office, antivirus, drivers, and more.\", aboutTitle: \"About\", aboutText: \"RemoteFix offers expert PC support worldwide via TeamViewer for €30/hour or in-person across NRW for €40/hour. Remote support covers PC issues only. In-person support includes all software issues for household electronics.\", testimonialsTitle: \"Testimonials\", faqTitle: \"Frequently Asked Questions\", contactTitle: \"Contact\", contactNote: \"Messages answered within 24 hours.\", inputName: \"Your Name\", inputEmail: \"Your Email\", inputMessage: \"Your Message\", btnSend: \"Send\" },
+    de: { heroTitle: \"Schneller & Zuverlässiger IT-Support\", heroText: \"PC-Probleme weltweit remote oder vor Ort in NRW lösen.\", servicesTitle: \"Unsere Leistungen\", service1: \"Windows-Fehlerbehebung\", desc1: \"Beheben Sie Abstürze, Startprobleme und Systemfehler aus der Ferne.\", service2: \"Virenentfernung\", desc2: \"Malware entfernen und persönliche Daten schützen.\", service3: \"Systemoptimierung\", desc3: \"Langsame Systeme beschleunigen und Leistung verbessern.\", service4: \"Softwareinstallation\", desc4: \"Installieren Sie Office, Antivirus, Treiber und mehr.\", aboutTitle: \"Über Uns\", aboutText: \"RemoteFix bietet PC-Support weltweit per TeamViewer (30 €/Std) oder vor Ort in NRW (40 €/Std). Remote nur PC, vor Ort auch Haushaltsgeräte (Software).\", testimonialsTitle: \"Kundenmeinungen\", faqTitle: \"Häufige Fragen\", contactTitle: \"Kontakt\", contactNote: \"Nachrichten werden innerhalb von 24 Stunden beantwortet.\", inputName: \"Ihr Name\", inputEmail: \"Ihre E-Mail\", inputMessage: \"Ihre Nachricht\", btnSend: \"Senden\" },
+    pl: { heroTitle: \"Szybkie i niezawodne wsparcie IT\", heroText: \"Problemy z PC rozwiązywane zdalnie lub osobiście w NRW.\", servicesTitle: \"Nasze Usługi\", service1: \"Naprawa systemu Windows\", desc1: \"Usuwanie błędów systemu i problemów z uruchomieniem.\", service2: \"Usuwanie wirusów\", desc2: \"Usuwanie wirusów i ochrona danych.\", service3: \"Optymalizacja systemu\", desc3: \"Przyspieszenie działania i poprawa wydajności.\", service4: \"Instalacja oprogramowania\", desc4: \"Instalacja Office, antywirusów, sterowników.\", aboutTitle: \"O Nas\", aboutText: \"RemoteFix oferuje wsparcie IT na całym świecie przez TeamViewer (30 €/h) lub osobiście w NRW (40 €/h). Zdalnie tylko PC, osobiście wszystkie urządzenia (oprogramowanie).\", testimonialsTitle: \"Opinie Klientów\", faqTitle: \"Najczęściej zadawane pytania\", contactTitle: \"Kontakt\", contactNote: \"Odpowiadamy w ciągu 24 godzin.\", inputName: \"Twoje imię\", inputEmail: \"Twój e-mail\", inputMessage: \"Twoja wiadomość\", btnSend: \"Wyślij\" }
+  };
+
+  function changeLanguage(lang) {
+    const t = translations[lang];
+    for (const id in t) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = t[id];
+    }
+    document.getElementById(\"inputName\").placeholder = t.inputName;
+    document.getElementById(\"inputEmail\").placeholder = t.inputEmail;
+    document.getElementById(\"inputMessage\").placeholder = t.inputMessage;
+  }
+
+  function acceptCookies() {
+    document.getElementById('cookie-banner').style.display = 'none';
+    localStorage.setItem('cookieAccepted', 'true');
+  }
+  window.onload = function() {
+    if (!localStorage.getItem('cookieAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+    document.querySelectorAll('.fade-in').forEach((el, i) => setTimeout(() => el.style.opacity = 1, 100 * i));
+  };
 </script>
+
 </body>
 </html>
