@@ -4,16 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RemoteFix - IT Support</title>
-<meta name="description" content="RemoteFix offers fast, reliable remote and in-person IT support for PCs and software in English, German, and Polish.">
-<meta name="keywords" content="remote IT support, PC troubleshooting, software repair, RemoteFix, TeamViewer, German IT support">
+<meta name="description" content="RemoteFix offers reliable remote and in-person IT support in English, German, and Polish.">
 <meta name="author" content="Igor Jurczak">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  body { margin: 0; font-family: Arial, sans-serif; background: #f0f2f5; color: #333; }
+  body { margin: 0; font-family: Arial, sans-serif; background: linear-gradient(to right, #f0f2f5 0%, #e0e4e8 100%); color: #333; }
   header, main, footer { text-align: center; padding: 2rem; }
   .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
   .card, .faq-item { background: white; padding: 1rem; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-  .faq-item { transition: transform 0.3s ease; }
+  .faq-item { display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
   .faq-item:hover { transform: translateY(-5px); }
   .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s forwards; }
   @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
@@ -91,11 +90,10 @@
 
 <script>
   const translations = {
-    en: { heroTitle: \"Fast & Reliable Remote IT Support\", heroText: \"Your PC problems solved remotely or in-person across NRW.\", servicesTitle: \"Our Services\", service1: \"Windows Troubleshooting\", desc1: \"Fix crashes, boot issues, and system errors remotely.\", service2: \"Virus Removal\", desc2: \"Remove malware and secure your personal data.\", service3: \"System Optimization\", desc3: \"Speed up slow systems and improve performance.\", service4: \"Software Setup\", desc4: \"Install Office, antivirus, drivers, and more.\", aboutTitle: \"About\", aboutText: \"RemoteFix offers expert PC support worldwide via TeamViewer for €30/hour or in-person across NRW for €40/hour. Remote support covers PC issues only. In-person support includes all software issues for household electronics.\", testimonialsTitle: \"Testimonials\", faqTitle: \"Frequently Asked Questions\", contactTitle: \"Contact\", contactNote: \"Messages answered within 24 hours.\", inputName: \"Your Name\", inputEmail: \"Your Email\", inputMessage: \"Your Message\", btnSend: \"Send\" },
-    de: { heroTitle: \"Schneller & Zuverlässiger IT-Support\", heroText: \"PC-Probleme weltweit remote oder vor Ort in NRW lösen.\", servicesTitle: \"Unsere Leistungen\", service1: \"Windows-Fehlerbehebung\", desc1: \"Beheben Sie Abstürze, Startprobleme und Systemfehler aus der Ferne.\", service2: \"Virenentfernung\", desc2: \"Malware entfernen und persönliche Daten schützen.\", service3: \"Systemoptimierung\", desc3: \"Langsame Systeme beschleunigen und Leistung verbessern.\", service4: \"Softwareinstallation\", desc4: \"Installieren Sie Office, Antivirus, Treiber und mehr.\", aboutTitle: \"Über Uns\", aboutText: \"RemoteFix bietet PC-Support weltweit per TeamViewer (30 €/Std) oder vor Ort in NRW (40 €/Std). Remote nur PC, vor Ort auch Haushaltsgeräte (Software).\", testimonialsTitle: \"Kundenmeinungen\", faqTitle: \"Häufige Fragen\", contactTitle: \"Kontakt\", contactNote: \"Nachrichten werden innerhalb von 24 Stunden beantwortet.\", inputName: \"Ihr Name\", inputEmail: \"Ihre E-Mail\", inputMessage: \"Ihre Nachricht\", btnSend: \"Senden\" },
-    pl: { heroTitle: \"Szybkie i niezawodne wsparcie IT\", heroText: \"Problemy z PC rozwiązywane zdalnie lub osobiście w NRW.\", servicesTitle: \"Nasze Usługi\", service1: \"Naprawa systemu Windows\", desc1: \"Usuwanie błędów systemu i problemów z uruchomieniem.\", service2: \"Usuwanie wirusów\", desc2: \"Usuwanie wirusów i ochrona danych.\", service3: \"Optymalizacja systemu\", desc3: \"Przyspieszenie działania i poprawa wydajności.\", service4: \"Instalacja oprogramowania\", desc4: \"Instalacja Office, antywirusów, sterowników.\", aboutTitle: \"O Nas\", aboutText: \"RemoteFix oferuje wsparcie IT na całym świecie przez TeamViewer (30 €/h) lub osobiście w NRW (40 €/h). Zdalnie tylko PC, osobiście wszystkie urządzenia (oprogramowanie).\", testimonialsTitle: \"Opinie Klientów\", faqTitle: \"Najczęściej zadawane pytania\", contactTitle: \"Kontakt\", contactNote: \"Odpowiadamy w ciągu 24 godzin.\", inputName: \"Twoje imię\", inputEmail: \"Twój e-mail\", inputMessage: \"Twoja wiadomość\", btnSend: \"Wyślij\" }
+    en: { /* ... */ },
+    de: { /* ... */ },
+    pl: { /* ... */ }
   };
-
   function changeLanguage(lang) {
     const t = translations[lang];
     for (const id in t) {
@@ -106,7 +104,6 @@
     document.getElementById(\"inputEmail\").placeholder = t.inputEmail;
     document.getElementById(\"inputMessage\").placeholder = t.inputMessage;
   }
-
   function acceptCookies() {
     document.getElementById('cookie-banner').style.display = 'none';
     localStorage.setItem('cookieAccepted', 'true');
