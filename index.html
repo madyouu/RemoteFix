@@ -123,3 +123,42 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RemoteFix - IT Support</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const resources = {
+        en: { translation: { hero: "Fast & Reliable Remote IT Support" } },
+        de: { translation: { hero: "Schneller & Zuverlässiger IT-Support" } },
+        pl: { translation: { hero: "Szybkie i niezawodne wsparcie IT" } }
+      };
+      i18next.init({ lng: 'en', resources }, function(err, t) {
+        document.getElementById('heroTitle').innerText = i18next.t('hero');
+      });
+      document.querySelectorAll('.lang-switcher img').forEach(flag => {
+        flag.addEventListener('click', function() {
+          const lang = this.alt;
+          i18next.changeLanguage(lang);
+          document.getElementById('heroTitle').innerText = i18next.t('hero');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1 id="heroTitle">Fast & Reliable Remote IT Support</h1>
+    <div class="lang-switcher">
+      <img src="https://flagcdn.com/w40/us.png" alt="en" />
+      <img src="https://flagcdn.com/w40/de.png" alt="de" />
+      <img src="https://flagcdn.com/w40/pl.png" alt="pl" />
+    </div>
+  </header>
+</body>
+</html>
